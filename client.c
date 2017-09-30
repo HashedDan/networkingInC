@@ -20,5 +20,12 @@ int main(int argc, char * argv[]) {
 
 	int sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 
+	if (sock < 0) {
+		DieWithSystemMessage("socket() failed");
+	}
+
+	struct sockaddr_in servAddr;
+	memset(&servAddr, 0, sizeof(servAddr));
+
 	exit(0);
 }
